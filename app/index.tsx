@@ -1,6 +1,7 @@
 import { FlatList, View, StyleSheet, Text} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { consultas } from "../data/consultas";
+import { ConsultaItem } from "../components/ConsultaItem";
 
 
 const ConsultasScreen = () => {
@@ -14,13 +15,7 @@ const ConsultasScreen = () => {
       }}  
         data={consultas}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Text style={styles.medicoText}>{item.medico}</Text>
-            <Text>Data da Consulta: {item.data.toLocaleDateString('pt-BR')}</Text>
-            <Text>Horário: {item.data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</Text>
-          </View>
-        )}
+        renderItem={({ item }) => <ConsultaItem consulta={item} />}
       />
     </View>
   );
