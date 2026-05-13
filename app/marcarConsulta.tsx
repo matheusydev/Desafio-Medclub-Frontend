@@ -68,9 +68,7 @@ const AdicionarConsultaScreen = () => {
                             onChangeText={field.onChange}
                         />
 
-                        {fieldState.error && (
-                            <Text style={styles.error}>Campo obrigatório</Text>
-                        )}
+                        {fieldState.error && (<Text style={styles.error}>Campo obrigatório</Text>)}
                     </View>
                 )}
             />
@@ -90,9 +88,7 @@ const AdicionarConsultaScreen = () => {
                             onChangeText={field.onChange}
                         />
 
-                        {fieldState.error && (
-                            <Text style={styles.error}>Campo obrigatório</Text>
-                        )}
+                        {fieldState.error && (<Text style={styles.error}>Campo obrigatório</Text>)}
                     </View>
                 )}
             />
@@ -112,9 +108,7 @@ const AdicionarConsultaScreen = () => {
                             onChangeText={field.onChange}
                         />
 
-                        {fieldState.error && (
-                            <Text style={styles.error}>Campo obrigatório</Text>
-                        )}
+                        {fieldState.error && (<Text style={styles.error}>Campo obrigatório</Text>)}
                     </View>
                 )}
             />
@@ -200,11 +194,7 @@ const AdicionarConsultaScreen = () => {
                             />
                         )}
 
-                        {fieldState.error && (
-                            <Text style={styles.error}>
-                                Campo obrigatório
-                            </Text>
-                        )}
+                        {fieldState.error && (<Text style={styles.error}>Campo obrigatório</Text>)}
                     </View>
                 )}
             />
@@ -213,9 +203,7 @@ const AdicionarConsultaScreen = () => {
                 style={styles.button}
                 onPress={handleSubmit(onSubmit)}
             >
-                <Text style={styles.buttonText}>
-                    Adicionar Consulta
-                </Text>
+                <Text style={styles.buttonText}>Adicionar Consulta</Text>
             </Pressable>
         </View>
 
@@ -258,5 +246,6 @@ const styles = StyleSheet.create({
 
     error: {
         color: "red",
+        
     },
 });
