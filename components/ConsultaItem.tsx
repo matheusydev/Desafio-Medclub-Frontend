@@ -6,7 +6,7 @@ import { Link } from "expo-router"
 type ConsultaItemProps = {
     consulta: Consulta
 }
-export function ConsultaItem({ consulta} : ConsultaItemProps){
+export function ConsultaItem({ consulta }: ConsultaItemProps){
     return(
         <Link href={`/consultas/${consulta.id}`} asChild>
             <Pressable style={style.card}>
@@ -23,7 +23,7 @@ const style = StyleSheet.create({
         card: {
         borderWidth: 1,
         borderColor: "#000080",
-        paddingHorizontal: 8,
+        paddingHorizontal: 16,
         paddingVertical: 16
     },
         description: {

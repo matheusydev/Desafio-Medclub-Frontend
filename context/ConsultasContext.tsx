@@ -1,9 +1,31 @@
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode } from "react";
 import { consultas as dadosIniciais } from '../data/consultas';
+import { Consulta } from "../data/types";
 
-export const ConsultaContext = createContext(undefined)
+type ConsultaContextType = {
+    consultas: Consulta[];
+    adicionarConsulta: (novaConsulta: Consulta) => void;
+};
 
-export function ConsultaProvider({ children }) {
+export const ConsultaContext = createContext<ConsultaContextType | undefined>(undefined)
+
+export function ConsultaProvider({ children }: { children: ReactNode }) {
     const [consultas, setConsultas] = useState(dadosIniciais)
 
+    function adicionarConsulta(novaConsulta: Consulta) {
+        
+        setConsultas((consultasAtuias) => [...consultasAtuias, novaConsulta]);
+    }
+
+    return (
+        <ConsultaContext.Provider value={{ consultas, adicionarConsulta }}>
+            {children}
+        </ConsultaContext.Provider>
+    );
 }
+
+
+
+
+
+

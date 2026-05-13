@@ -1,10 +1,13 @@
 import { useLocalSearchParams } from "expo-router";
 import { Text, View, StyleSheet } from "react-native";
-import { consultas } from "../../data/consultas";
+import { useContext } from "react";
+import { ConsultaContext } from "../../context/ConsultasContext";
 
 export default function ConsultasScreen() {
     const { id } = useLocalSearchParams();
-    const consulta = consultas.find((item) => item.id === id);
+    const context = useContext(ConsultaContext);
+    const consulta = context?.consultas.find((item) => item.id === id);
+
 
     if (!consulta) {
         return<Text>Consulta não encontrada</Text>
@@ -25,7 +28,7 @@ const style = StyleSheet.create({
         card: {
         borderWidth: 1,
         borderColor: "#000080",
-        paddingHorizontal: 8,
+        paddingHorizontal: 16,
         paddingVertical: 16
     },
         description: {
