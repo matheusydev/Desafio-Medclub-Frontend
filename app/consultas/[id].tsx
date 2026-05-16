@@ -2,6 +2,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Text, View, StyleSheet, Pressable, Alert } from "react-native";
 import { useContext } from "react";
 import { ConsultaContext } from "../../context/ConsultasContext";
+import { colors } from "../../constants/theme";
 
 export default function ConsultasScreen() {
     const { id } = useLocalSearchParams();
@@ -49,7 +50,7 @@ export default function ConsultasScreen() {
     }
 
     return (
-        <View style={style.container}>
+        <View style={style.card}>
             <Text style={style.description}>
                 {consulta.medico}
             </Text>
@@ -90,12 +91,11 @@ export default function ConsultasScreen() {
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        backgroundColor: colors.background,
         padding: 24,
     },
     description: {
-        color: "#000",
+        color: colors.textPrimary,
         fontSize: 24,
         fontWeight: "600",
         marginTop: 8,
@@ -107,32 +107,40 @@ const style = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 24,
-        backgroundColor: "#F8F9FA",
+        backgroundColor: colors.background,
     },
 
     notFoundTitle: {
         fontSize: 24,
         fontWeight: "700",
-        color: "#DC143C",
+        color: colors.danger,
         marginBottom: 12,
     },
 
     notFoundText: {
         fontSize: 16,
-        color: "#6B7280",
+        color: colors.textSecondary,
         textAlign: "center",
     },
     deleteButton: {
         marginTop: 24,
-        backgroundColor: "#DC143C",
+        backgroundColor: colors.danger,
         paddingVertical: 12,
         paddingHorizontal: 24,
         borderRadius: 8,
     },
 
     deleteButtonText: {
-        color: "#FFF",
+        color: colors.surface,
         fontSize: 16,
         fontWeight: "600",
+    },
+    card: {
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    padding: 16,
+    gap: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
     },
 });
