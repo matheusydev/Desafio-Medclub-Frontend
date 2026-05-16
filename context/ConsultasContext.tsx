@@ -5,27 +5,37 @@ import { Consulta } from "../data/types";
 type ConsultaContextType = {
     consultas: Consulta[];
     adicionarConsulta: (novaConsulta: Consulta) => void;
+    excluirConsulta: (id: string) => void;
 };
 
-export const ConsultaContext = createContext<ConsultaContextType | undefined>(undefined)
+export const ConsultaContext = createContext<ConsultaContextType | undefined>(undefined);
 
 export function ConsultaProvider({ children }: { children: ReactNode }) {
-    const [consultas, setConsultas] = useState(dadosIniciais)
+
+    const [consultas, setConsultas] = useState(dadosIniciais);
 
     function adicionarConsulta(novaConsulta: Consulta) {
-        
-        setConsultas((consultasAtuias) => [...consultasAtuias, novaConsulta]);
+        setConsultas((consultasAtuais) => [
+            ...consultasAtuais,
+            novaConsulta
+        ]);
+    }
+
+    function excluirConsulta(id: string) {
+        setConsultas((consultasAtuais) =>
+            consultasAtuais.filter((consulta) => consulta.id !== id)
+        );
     }
 
     return (
-        <ConsultaContext.Provider value={{ consultas, adicionarConsulta }}>
+        <ConsultaContext.Provider
+            value={{
+                consultas,
+                adicionarConsulta,
+                excluirConsulta
+            }}
+        >
             {children}
         </ConsultaContext.Provider>
     );
 }
-
-
-
-
-
-

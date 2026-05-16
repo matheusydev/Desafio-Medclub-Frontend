@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     },
 
     error: {
-        color: "red",
+        color: "#DC143C",
         
     },
 });

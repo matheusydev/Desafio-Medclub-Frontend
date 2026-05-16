@@ -1,5 +1,5 @@
-import { useLocalSearchParams } from "expo-router";
-import { Text, View, StyleSheet } from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import { useContext } from "react";
 import { ConsultaContext } from "../../context/ConsultasContext";
 
@@ -10,6 +10,15 @@ export default function ConsultasScreen() {
     const consulta = context?.consultas.find(
         (item) => item.id === id
     );
+
+    const router = useRouter();
+
+    function handleExcluirConsulta() {
+
+        context?.excluirConsulta(id as string);
+        router.back();
+
+    }
 
     if (!consulta) {
         return (
@@ -51,6 +60,15 @@ export default function ConsultasScreen() {
             <Text>
                 Localização: {consulta.localizacao}
             </Text>
+
+            <Pressable
+                style={style.deleteButton}
+                onPress={handleExcluirConsulta}
+            >
+                <Text style={style.deleteButtonText}>
+                    Excluir Consulta
+                </Text>
+            </Pressable>
         </View>
     );
 }
@@ -62,14 +80,6 @@ const style = StyleSheet.create({
         alignItems: "center",
         padding: 24,
     },
-
-    card: {
-        borderWidth: 1,
-        borderColor: "#000080",
-        paddingHorizontal: 16,
-        paddingVertical: 16,
-    },
-
     description: {
         color: "#000",
         fontSize: 24,
@@ -89,7 +99,7 @@ const style = StyleSheet.create({
     notFoundTitle: {
         fontSize: 24,
         fontWeight: "700",
-        color: "#DC2626",
+        color: "#DC143C",
         marginBottom: 12,
     },
 
@@ -97,5 +107,18 @@ const style = StyleSheet.create({
         fontSize: 16,
         color: "#6B7280",
         textAlign: "center",
+    },
+    deleteButton: {
+        marginTop: 24,
+        backgroundColor: "#DC143C",
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 8,
+    },
+
+    deleteButtonText: {
+        color: "#FFF",
+        fontSize: 16,
+        fontWeight: "600",
     },
 });

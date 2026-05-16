@@ -22,7 +22,6 @@ const ConsultasScreen = () => {
         </Link>
       </View>
       <FlatList contentContainerStyle={{
-        paddingTop: top,
         paddingBottom: bottom,
         paddingHorizontal: 16,
       }}  
@@ -38,15 +37,6 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: "#fff", 
-  },
-  itemContainer: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-  medicoText: {
-    fontWeight: "bold",
-    fontSize: 16,
   },
   buttonContainer: {
     alignItems: "center",
