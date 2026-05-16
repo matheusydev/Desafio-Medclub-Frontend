@@ -1,5 +1,5 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Text, View, StyleSheet, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable, Alert } from "react-native";
 import { useContext } from "react";
 import { ConsultaContext } from "../../context/ConsultasContext";
 
@@ -14,10 +14,24 @@ export default function ConsultasScreen() {
     const router = useRouter();
 
     function handleExcluirConsulta() {
-
-        context?.excluirConsulta(id as string);
-        router.back();
-
+        Alert.alert(
+            "Excluir consulta",
+            "Tem certeza que deseja excluir essa consulta?",
+            [
+                {
+                    text: "Cancelar",
+                    style: "cancel",
+                },
+                {
+                    text: "Excluir",
+                    style: "destructive",
+                    onPress: () => {
+                        context?.excluirConsulta(id as string);
+                        router.back();
+                    },
+                },
+            ]
+        );
     }
 
     if (!consulta) {
