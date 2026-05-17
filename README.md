@@ -2,7 +2,7 @@
 
 <!-- Introdução -->
 
-# 🏥 Desafio Medclub Frontend
+# 🏥 Desafio Medclub React Native
 
 ### Aplicativo mobile para gerenciamento de consultas médicas
 
@@ -78,10 +78,10 @@ O objetivo da aplicação é permitir que usuários possam **agendar, visualizar
  
 ```bash
 # Clone o repositório
-git clone https://github.com/matheusydev/Desafio-Medclub-Frontend.git
+git clone https://github.com/matheusydev/Desafio-Medclub-React-Native.git
 
 # Acesse a pasta do projeto
-cd Desafio-Medclub-Frontend
+cd Desafio-Medclub-React-Natice
 
 # Instale as dependências
 npm install
