@@ -54,6 +54,16 @@ O objetivo da aplicação é permitir que usuários possam **agendar, visualizar
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+
+| Listagem de Consultas | Nova Consulta | Detalhes da Consulta |
+|---|---|---|
+| <img src="https://i.imgur.com/h8DtLtK.jpeg" width="250" /> | <img src="https://i.imgur.com/etLPAHW.jpeg" width="250" /> | <img src="https://i.imgur.com/7fpuhGA.jpeg" width="250" /> |
+
+</div>
+
 <!-- Como executar -->
  
 ## ⚙️ Como Executar o Projeto
