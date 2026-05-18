@@ -81,7 +81,7 @@ O objetivo da aplicação é permitir que usuários possam **agendar, visualizar
 git clone https://github.com/matheusydev/Desafio-Medclub-React-Native.git
 
 # Acesse a pasta do projeto
-cd Desafio-Medclub-React-Natice
+cd Desafio-Medclub-React-Native
 
 # Instale as dependências
 npm install
