@@ -161,8 +161,8 @@ Arquivo central responsável pela paleta de cores do aplicativo. Todas as cores 
  
 ### `context/ConsultasContext.tsx`
 
-Gerencia o estado global das consultas utilizando Context API. Expõe o array de consultas e as funções de adicionar e excluir consultas.
- 
+Gerencia o estado global das consultas utilizando Context API e expõe o hook customizado `useConsultas` para facilitar o acesso aos dados e funções (adicionar/excluir) nas telas de forma tipada e segura.
+
 ### `data/consultas.ts`
 
 Arquivo contendo consultas fictícias utilizadas como dados iniciais do aplicativo.
@@ -207,6 +207,12 @@ Utilizado para evitar que o conteúdo fique sobreposto por notch, barra de statu
 
 Utilizado o `Alert` nativo do React Native antes de executar a exclusão,
 evitando que o usuário remova uma consulta por acidente.
+
+### Hook Customizado para o Contexto
+Foi criado um hook customizado (`useConsultas`) para encapsular a lógica do `useContext`. Isso garante total segurança de tipagem com o TypeScript, garantindo que o contexto nunca seja acessado como `undefined` pelas telas da aplicação.
+
+### Alinhamento de Tipagem com o Backend
+A estrutura de dados da aplicação foi modelada para refletir o comportamento de uma API REST real construída em Django. Os campos de data e hora são manipulados e armazenados como `string` nos padrões `YYYY-MM-DD` e `HH:MM:SS` (simulando `DateField` e `TimeField`), enquanto o formulário lida com os objetos `Date` nativos, fazendo o parser (conversão) apenas no momento da submissão.
 
 ---
 
@@ -291,4 +297,5 @@ Ao desenvolver este projeto, os seguintes conhecimentos foram consolidados na pr
 - ✅ **Safe Area Context** para compatibilidade com diferentes dispositivos
 - ✅ **Paleta de cores centralizada** para consistência visual
 - ✅ **Conventional Commits** para padronização do histórico do git
+- ✅ **Criação de Custom Hooks** (`useConsultas`) para melhorar a segurança e limpeza do código com TypeScript
 ---
