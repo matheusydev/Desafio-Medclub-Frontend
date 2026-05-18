@@ -1,14 +1,12 @@
 import { FlatList, View, StyleSheet, Text, Pressable } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useContext } from "react";
-import { ConsultaContext } from "../context/ConsultasContext";
+import { useConsultas } from "../context/ConsultasContext";
 import { ConsultaItem } from "../components/ConsultaItem";
 import { Link } from "expo-router";
 import { colors } from "../constants/theme";
 
 const ConsultasScreen = () => {
-  const consultasContext = useContext(ConsultaContext);
-  const consultas = consultasContext?.consultas ?? [];
+  const { consultas } = useConsultas();
   const { bottom } = useSafeAreaInsets();
 
   return (

@@ -1,17 +1,18 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Text, View, StyleSheet, Pressable, Alert } from "react-native";
-import { useContext } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ConsultaContext } from "../../context/ConsultasContext";
+import { useConsultas } from "../../context/ConsultasContext";
 import { colors } from "../../constants/theme";
 
 export default function ConsultasScreen() {
     const { id } = useLocalSearchParams();
-    const context = useContext(ConsultaContext);
+    
+    const { consultas, excluirConsulta } = useConsultas();
+    
     const router = useRouter();
     const { top } = useSafeAreaInsets();
 
-    const consulta = context?.consultas.find(
+    const consulta = consultas.find(
         (item) => item.id === id
     );
 
@@ -25,7 +26,7 @@ export default function ConsultasScreen() {
                     text: "Excluir",
                     style: "destructive",
                     onPress: () => {
-                        context?.excluirConsulta(id as string);
+                        excluirConsulta(id as string);
                         router.back();
                     },
                 },
@@ -50,20 +51,17 @@ export default function ConsultasScreen() {
         <View style={[style.container, { paddingTop: top }]}>
             <View style={style.card}>
                 <Text style={style.description}>
-                    {consulta.medico}
+                    {consulta.nome_medico}
                 </Text>
 
                 <Text style={style.infoText}>
                     Data da Consulta:{" "}
-                    {consulta.data.toLocaleDateString("pt-BR")}
+                    {consulta.data.split('-').reverse().join('/')}
                 </Text>
 
                 <Text style={style.infoText}>
                     Horário:{" "}
-                    {consulta.data.toLocaleTimeString("pt-BR", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    })}
+                    {consulta.hora.substring(0, 5)}
                 </Text>
 
                 <Text style={style.infoText}>

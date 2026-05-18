@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useContext } from "react";
 import { consultas as dadosIniciais } from '../data/consultas';
 import { Consulta } from "../data/types";
 
@@ -38,4 +38,14 @@ export function ConsultaProvider({ children }: { children: ReactNode }) {
             {children}
         </ConsultaContext.Provider>
     );
+}
+
+export function useConsultas() {
+    const context = useContext(ConsultaContext);
+    
+    if (!context) {
+        throw new Error("useConsultas deve ser usado dentro de um ConsultaProvider");
+    }
+    
+    return context;
 }

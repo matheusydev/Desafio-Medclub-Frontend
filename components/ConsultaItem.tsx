@@ -12,20 +12,17 @@ export function ConsultaItem({ consulta }: ConsultaItemProps) {
         <Link href={`/consultas/${consulta.id}`} asChild>
             <Pressable style={style.card}>
                 <Text style={style.description}>
-                    {consulta.medico}
+                    {consulta.nome_medico}
                 </Text>
 
                 <Text style={style.infoText}>
                     Data da Consulta:{" "}
-                    {consulta.data.toLocaleDateString("pt-BR")}
+                    {consulta.data.split('-').reverse().join('/')}
                 </Text>
 
                 <Text style={style.infoText}>
                     Horário:{" "}
-                    {consulta.data.toLocaleTimeString("pt-BR", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    })}
+                    {consulta.hora.substring(0, 5)}
                 </Text>
             </Pressable>
         </Link>

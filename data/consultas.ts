@@ -1,74 +1,84 @@
 import { Consulta } from "./types";
 
 export const consultas: Consulta[] = [
-    {
-        id: "1",
-        data: new Date("2026-05-25T10:00"),
-        medico: "Dr. Matheus Ylan Araujo Moraes",
-        especialidade: "Fisioterapeuta",
-        localizacao: "centro"
-    },
-    {
-        id: "2",
-        data: new Date("2026-05-25T10:00:00"),
-        medico: "Dra. Yasmim Lyra Sousa",
-        especialidade: "Psicologa",
-        localizacao: "Zona norte"
-    },
-    {
-        id: "3",
-        data: new Date("2026-05-26T14:30:00"),
-        medico: "Dr. Ricardo Oliveira",
-        especialidade: "Cardiologista",
-        localizacao: "Zona Leste"
-    },
-    {
-        id: "4",
-        data: new Date("2026-05-27T09:15:00"),
-        medico: "Dra. Beatriz Santos",
-        especialidade: "Nutricionista",
-        localizacao: "Zona Sul"
-    },
-        {
-        id: "5",
-        data: new Date("2026-05-27T16:00:00"),
-        medico: "Dr. Felipe Andrade",
-        especialidade: "Dermatologista",
-        localizacao: "Centro"
-    },
-    {
-        id: "6",
-        data: new Date("2026-05-28T08:30:00"),
-        medico: "Dra. Camila Nogueira",
-        especialidade: "Ginecologista",
-        localizacao: "Zona Leste"
-    },
-    {
-        id: "7",
-        data: new Date("2026-05-28T11:00:00"),
-        medico: "Dr. Lucas Ferreira",
-        especialidade: "Ortopedista",
-        localizacao: "Zona Norte"
-    },
-    {
-        id: "8",
-        data: new Date("2026-05-29T13:45:00"),
-        medico: "Dra. Juliana Costa",
-        especialidade: "Endocrinologista",
-        localizacao: "Zona Sul"
-    },
-    {
-        id: "9",
-        data: new Date("2026-05-30T10:20:00"),
-        medico: "Dr. André Lima",
-        especialidade: "Urologista",
-        localizacao: "Centro"
-    },
-    {
-        id: "10",
-        data: new Date("2026-05-31T15:10:00"),
-        medico: "Dra. Mariana Alves",
-        especialidade: "Neurologista",
-        localizacao: "Zona Leste"
-    }
+  {
+    id: "1",
+    data: "2026-05-20",
+    hora: "10:30:00",
+    nome_medico: "Dr. Matheus",
+    especialidade: "Cardiologista",
+    localizacao: "Medclub Centro"
+  },
+  {
+    id: "2",
+    data: "2026-05-21",
+    hora: "08:00:00",
+    nome_medico: "Dra. Ana Costa",
+    especialidade: "Dermatologista",
+    localizacao: "Clínica Vida Leste"
+  },
+  {
+    id: "3",
+    data: "2026-05-21",
+    hora: "14:15:00",
+    nome_medico: "Dr. Carlos Eduardo",
+    especialidade: "Ortopedista",
+    localizacao: "Medclub Centro"
+  },
+  {
+    id: "4",
+    data: "2026-05-22",
+    hora: "09:30:00",
+    nome_medico: "Dra. Juliana Silva",
+    especialidade: "Pediatra",
+    localizacao: "Hospital São Marcos"
+  },
+  {
+    id: "5",
+    data: "2026-05-25",
+    hora: "11:00:00",
+    nome_medico: "Dr. Roberto Alves",
+    especialidade: "Oftalmologista",
+    localizacao: "Clínica Visão"
+  },
+  {
+    id: "6",
+    data: "2026-05-26",
+    hora: "15:45:00",
+    nome_medico: "Dra. Fernanda Lima",
+    especialidade: "Ginecologista",
+    localizacao: "Clínica Vida Leste"
+  },
+  {
+    id: "7",
+    data: "2026-05-27",
+    hora: "10:00:00",
+    nome_medico: "Dr. Matheus",
+    especialidade: "Cardiologista",
+    localizacao: "Hospital São Marcos"
+  },
+  {
+    id: "8",
+    data: "2026-05-28",
+    hora: "13:30:00",
+    nome_medico: "Dr. Paulo Mendes",
+    especialidade: "Neurologista",
+    localizacao: "Medclub Centro"
+  },
+  {
+    id: "9",
+    data: "2026-05-29",
+    hora: "08:45:00",
+    nome_medico: "Dra. Camila Rocha",
+    especialidade: "Endocrinologista",
+    localizacao: "Clínica Vida Leste"
+  },
+  {
+    id: "10",
+    data: "2026-05-30",
+    hora: "16:20:00",
+    nome_medico: "Dr. Roberto Alves",
+    especialidade: "Oftalmologista",
+    localizacao: "Medclub Centro"
+  }
 ];

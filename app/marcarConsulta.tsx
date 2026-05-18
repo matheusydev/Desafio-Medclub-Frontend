@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet, Platform, ScrollView, } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ConsultaContext } from "../context/ConsultasContext";
+import { useConsultas } from "../context/ConsultasContext";
 import { useForm, Controller } from "react-hook-form";
 import { router } from "expo-router";
 import "react-native-get-random-values";
@@ -10,11 +10,10 @@ import { v4 as uuidv4 } from "uuid";
 import { colors } from "../constants/theme";
 
 type FormData = {
-    id: string;
-    medico: string;
+    nome_medico: string;
     especialidade: string;
     localizacao: string;
-    data: Date;
+    dataHoraObj: Date;
 };
 
 const AdicionarConsultaScreen = () => {
@@ -22,25 +21,30 @@ const AdicionarConsultaScreen = () => {
     const [showTimePicker, setShowTimePicker] = useState(false);
     const [showDatePicker, setShowDatePicker] = useState(false);
 
-    const context = useContext(ConsultaContext);
+    const { adicionarConsulta } = useConsultas();
 
     const { control, handleSubmit, reset } = useForm<FormData>({
         defaultValues: {
-            medico: "",
+            nome_medico: "",
             especialidade: "",
             localizacao: "",
-            data: new Date(),
+            dataHoraObj: new Date(),
         },
     });
 
 
     function onSubmit(data: FormData) {
-        context?.adicionarConsulta({
+        const dataFormatada = data.dataHoraObj.toISOString().split('T')[0];
+        
+        const horaFormatada = data.dataHoraObj.toTimeString().substring(0, 8);
+
+        adicionarConsulta({
             id: uuidv4(),
-            medico: data.medico,
+            nome_medico: data.nome_medico,
             especialidade: data.especialidade,
             localizacao: data.localizacao,
-            data: data.data,
+            data: dataFormatada,
+            hora: horaFormatada,
         });
 
         reset();
@@ -58,7 +62,7 @@ const AdicionarConsultaScreen = () => {
 
                     <Controller
                         control={control}
-                        name="medico"
+                        name="nome_medico"
                         rules={{ required: true }}
                         render={({ field, fieldState }) => (
                             <View style={styles.inputContainer}>
@@ -124,7 +128,7 @@ const AdicionarConsultaScreen = () => {
 
                     <Controller
                         control={control}
-                        name="data"
+                        name="dataHoraObj"
                         rules={{ required: true }}
                         render={({ field, fieldState }) => (
                             <View style={styles.inputContainer}>
